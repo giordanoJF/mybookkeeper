@@ -23,6 +23,12 @@ jobs:
           java-version: '21'
           distribution: 'temurin'
 
+      - name: Set JAVA_HOME to the value of JAVA_HOME_21_X64
+        run: |
+          # Imposta JAVA_HOME utilizzando la variabile d'ambiente JAVA_HOME_21_X64
+          echo "JAVA_HOME=$JAVA_HOME_21_X64" >> $GITHUB_ENV
+          echo "JAVA_HOME is set to: $JAVA_HOME_21_X64"
+
       - name: Setup Maven 3.8.7
         uses: s4u/setup-maven-action@v1.18.0
         with:
