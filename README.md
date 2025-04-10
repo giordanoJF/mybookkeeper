@@ -2,7 +2,7 @@
 
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/org.apache.bookkeeper/bookkeeper/badge.svg)](https://maven-badges.herokuapp.com/maven-central/org.apache.bookkeeper/bookkeeper)
 
-![Build Status](https://github.com/giordanoJF/mybookkeeper/actions/workflows/java-ci.yml/badge.svg)
+![Build Status](https://github.com/giordanoJF/mybookkeeper/actions/workflows/myci.yml/badge.svg)
 
 
 # Apache BookKeeper
