@@ -1,0 +1,37 @@
+name: Java CI with Maven on Ubuntu & Windows
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+
+    steps:
+      - name: Checkout codice
+        uses: actions/checkout@v4
+
+      - name: Setup Java 21
+        uses: actions/setup-java@v4
+        with:
+          java-version: '21'
+          distribution: 'temurin'
+
+      - name: Setup Maven 3.8.7
+        uses: s4u/setup-maven-action@v1
+        with:
+          maven-version: '3.8.7'
+
+      - name: Verifica versione Maven e Java
+        run: |
+          mvn -v
+          java -version
+
+      - name: Costruisci con Maven
+        run: mvn clean install
