@@ -21,19 +21,19 @@ jobs:
         uses: actions/setup-java@v4
         with:
           java-version: '21'
-          distribution: 'temurin'
+          distribution: 'corretto'
 
       - name: Setup Maven 3.9.9
         uses: s4u/setup-maven-action@v1.18.0
         with:
           maven-version: '3.9.9'
 
-      - name: Set JAVA_HOME for Maven to Java 21
-        run: |
-          echo "JAVA_HOME=$JAVA_HOME_21_X64" >> $GITHUB_ENV
-          echo "PATH=$JAVA_HOME_21_X64/bin:$PATH" >> $GITHUB_ENV
-          echo "JAVA_HOME is set to: $JAVA_HOME_21_X64"
-          echo "PATH is updated"
+#      - name: Set JAVA_HOME for Maven to Java 21
+#        run: |
+#          echo "JAVA_HOME=$JAVA_HOME_21_X64" >> $GITHUB_ENV
+#          echo "PATH=$JAVA_HOME_21_X64/bin:$PATH" >> $GITHUB_ENV
+#          echo "JAVA_HOME is set to: $JAVA_HOME_21_X64"
+#          echo "PATH is updated"
 
       - name: Verifica variabili d'ambiente
         run: |
