@@ -23,23 +23,21 @@ jobs:
           java-version: '21'
           distribution: 'temurin'
 
-      - name: Set JAVA_HOME to the value of JAVA_HOME_21_X64
+      - name: Set JAVA_HOME on Windows
+        if: runner.os == 'Windows'
         run: |
-          # Imposta JAVA_HOME utilizzando la variabile d'ambiente JAVA_HOME_21_X64
           echo "JAVA_HOME=$JAVA_HOME_21_X64" >> $GITHUB_ENV
           echo "JAVA_HOME is set to: $JAVA_HOME_21_X64"
-
-      #TODO: use java 21
 
       - name: Setup Maven 3.8.7
         uses: s4u/setup-maven-action@v1.18.0
         with:
-          maven-version: '3.8.7'
+          maven-version: '3.9.9'
 
       - name: Verifica versione Maven e Java
         run: |
           mvn -v
           java -version
 
-      - name: Costruisci con Maven
+      - name: Build con Maven
         run: mvn clean install
