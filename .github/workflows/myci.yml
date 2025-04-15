@@ -36,9 +36,6 @@ jobs:
           elif [ "${{ matrix.java-version }}" == "8" ]; then
             export JAVA_HOME="${JAVA_HOME_8_X64}"
           fi
-#          export PATH="$JAVA_HOME/bin:$PATH"
-#          echo "JAVA_HOME=$JAVA_HOME"
-#          which java
           java -version
           mvn -v
 
