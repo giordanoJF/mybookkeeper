@@ -36,7 +36,12 @@ jobs:
           elif [ "${{ matrix.java-version }}" == "8" ]; then
             export JAVA_HOME="${JAVA_HOME_8_X64}"
           fi
+          export PATH="$JAVA_HOME/bin:$PATH" # senza modificare il link del binario presente nel PATH ma aggiungendo il nuovo binario
+          echo "which java->"
+          which java
+          echo "java -version ->"
           java -version
+          echo "mvn -v ->"
           mvn -v
 
       - name: Build con Maven
