@@ -42,6 +42,10 @@ jobs:
 
       - name: checking java and maven versions
         run: |
+          echo "JAVA_HOME ->"
+          echo "$JAVA_HOME"
+          echo "path ->"
+          echo "$PATH"
           echo "which java->"
           which java
           echo "java -version ->"
