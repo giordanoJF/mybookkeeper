@@ -14,6 +14,11 @@ jobs:
       matrix:
         java-version: [8, 21]
 
+    env:
+      # Impostazione dinamica di JAVA_HOME e conseguente PATH in base alla versione di Java
+      JAVA_HOME: ${{ matrix.java-version == '21' && 'JAVA_HOME_21_X64' || 'JAVA_HOME_8_X64' }}
+      PATH: $JAVA_HOME:$PATH
+
     steps:
       - name: Checkout codice
         uses: actions/checkout@v4
@@ -29,14 +34,8 @@ jobs:
         with:
           maven-version: '3.8.7'
 
-      - name: setting JAVA_HOME e PATH
+      - name: checking env vars
         run: |
-          if [ "${{ matrix.java-version }}" == "21" ]; then
-            export JAVA_HOME="${JAVA_HOME_21_X64}"
-          elif [ "${{ matrix.java-version }}" == "8" ]; then
-            export JAVA_HOME="${JAVA_HOME_8_X64}"
-          fi
-          export PATH="$JAVA_HOME/bin:$PATH" # senza modificare il link del binario presente nel PATH ma aggiungendo il nuovo binario
           echo "which java->"
           which java
           echo "java -version ->"
