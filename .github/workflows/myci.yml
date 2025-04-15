@@ -23,23 +23,12 @@ jobs:
         with:
           java-version: ${{ matrix.java-version }}
           distribution: 'temurin'
-
-      - name: Impostazione JAVA_HOME e PATH
-        run: |
-          # Impostiamo JAVA_HOME e PATH in base alla versione di Java nel matrix
-          if [ "${{ matrix.java-version }}" == "8" ]; then
-            echo "JAVA_HOME=${JAVA_HOME_8_X64}" >> $GITHUB_ENV
-            echo "PATH=${JAVA_HOME_8_X64}/bin:$PATH" >> $GITHUB_ENV
-          elif [ "${{ matrix.java-version }}" == "21" ]; then
-            echo "JAVA_HOME=${JAVA_HOME_21_X64}" >> $GITHUB_ENV
-            echo "PATH=${JAVA_HOME_21_X64}/bin:$PATH" >> $GITHUB_ENV
-          fi
           
       - name: checking java and maven versions
         run: |
           echo "JAVA_HOME ->"
           echo "$JAVA_HOME"
-          echo "path ->"
+          echo "PATH ->"
           echo "$PATH"
           echo "which java->"
           which java
