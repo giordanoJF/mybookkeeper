@@ -34,11 +34,6 @@ jobs:
             echo "JAVA_HOME=${JAVA_HOME_21_X64}" >> $GITHUB_ENV
             echo "PATH=${JAVA_HOME_21_X64}/bin:$PATH" >> $GITHUB_ENV
           fi
-      
-      - name: Set up Maven 3.8.7
-        uses: s4u/setup-maven-action@v1.18.0
-        with:
-          maven-version: '3.8.7'
           
       - name: checking java and maven versions
         run: |
